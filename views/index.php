@@ -1,4 +1,6 @@
 <?php 
+
+    // Testing purposes
     include('../config/Database.php');
 
     $db = new Database();
