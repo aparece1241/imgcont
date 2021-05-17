@@ -4,7 +4,7 @@
         private $server_name   =  "localhost"; //for now since it is in local
         private $username      =  "root";      //for now since it is in local
         private $password      =  "";          //for now since it is in local
-        private $dbname        =  "";
+        private $dbname        =  "imgdb";
         private $conn_name     = "mysql"; 
         private $connection;
 
