@@ -9,6 +9,12 @@
         case '/':
             include("$BASE_PATH/views/welcome.php");
             break;
+        case '/login':
+            echo "Login Page";
+            break;
+        case '/register':
+            echo "Register Page";
+            break;
         // User home page
         case '/home':
             include("$BASE_PATH/views/user/index.php");
