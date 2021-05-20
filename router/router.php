@@ -23,6 +23,9 @@
         case '/error/404':
             include("$BASE_PATH/views/errors/404.php");
             break;    
+        case '/error/sql':
+            include("$BASE_PATH/views/errors/sql.php");
+            break;
         default:
             include("$BASE_PATH/views/errors/404.php");
             break;

@@ -7,7 +7,7 @@
         private $dbname        =  "imgdb";
         private $conn_name     = "mysql"; 
         private $connection;
-        private $conn_stt      = false;
+        private $conn_stt      =  [];
 
         /**
          *  Initialize new connection to the database
@@ -17,9 +17,11 @@
                 $connection_string = $this->conn_name.":host=".$this->server_name.";dbname=".$this->dbname;
                 $this->connection = new PDO($connection_string, $this->username, $this->password);
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $this->conn_stt = true;
+                $this->conn_stt['success'] = true;
+                $this->conn_stt['message'] = "Connected";
             } catch (PDOException $e) {
-                $this->conn_stt = false;
+                $this->conn_stt['success'] = false;
+                $this->conn_stt['message'] = $e->getMessage();
             }
         } 
 
