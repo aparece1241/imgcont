@@ -1,36 +1,17 @@
 <?php
-    // var_dump($_SERVER['REQUEST_URI']);
-    /**
-     * Holds the registered routes
-     *
-     * @var array $routes
-     */
-    $routes = [];
+    $request = $_SERVER['REQUEST_URI'];
+    $BASE_PATH = dirname(__DIR__);         
 
-    /**
-     * Register a new route
-     *
-     * @param $action string
-     * @param \Closure $callback Called when current URL matches provided action
-     */
-    function route($action, Closure $callback)
-    {
-        global $routes;
-        $action = trim($action, '/');
-        $routes[$action] = $callback;
-    }
-
-    /**
-     * Dispatch the router
-     *
-     * @param $action string
-     */
-    function dispatch($action)
-    {
-        global $routes;
-        print_r($routes);
-        $action = trim($action, '/');
-        $callback = $routes[$action];
-
-        echo call_user_func($callback);
+    // Simple router with switch case
+    switch ($request) {
+        // welcome page
+        case '/':
+            include("$BASE_PATH/views/welcome.php");
+            break;
+        // User home page
+        case '/home':
+            include("$BASE_PATH/views/user/index.php");
+            break;
+        default:
+            echo "Not Found!";
     }
