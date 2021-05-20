@@ -37,7 +37,7 @@
          * 
          * @return bool
          */
-        public function getconnectionStatus()
+        public function getConnectionStatus()
         {
             return $this->conn_stt;
         }
