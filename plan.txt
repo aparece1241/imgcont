@@ -1,0 +1,32 @@
+Database Design:
+    Appliction
+    Images
+    Admin
+
+###########
+    Application_info:
+        id: integer
+        app_name: string
+        token: string
+        timestamps: date
+
+##########
+    Images:
+        id: integer
+        name: string
+        application_id: integer
+        image: longtext / blob
+        timestamps: date
+
+##########
+    User:
+        id: integer
+        username: string
+        password: string
+        first_name: string
+        last_name: string
+        email: string|email
+        user_role: [application, admin]
+        application_info_id: integer|nullable
+        timestamps: date
+
