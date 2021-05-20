@@ -13,5 +13,6 @@
             include("$BASE_PATH/views/user/index.php");
             break;
         default:
-            echo "Not Found!";
+            include("$BASE_PATH/views/errors/404.php");
+            break;
     }
