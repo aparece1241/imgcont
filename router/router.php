@@ -1,7 +1,9 @@
 <?php
     $request = $_SERVER['REQUEST_URI'];
     $BASE_PATH = dirname(__DIR__);         
-
+    
+    // Testing only
+    include("$BASE_PATH/api/user/add.php");
 
     // Simple router with switch case
     switch ($request) {
@@ -29,4 +31,14 @@
         default:
             include("$BASE_PATH/views/errors/404.php");
             break;
+    }
+
+    /**
+     * Redirects to the given route
+     * 
+     * @param string $route
+     */
+    function redirect($route)
+    {
+        $_SERVER['REQUEST_URI'] = $route;
     }
