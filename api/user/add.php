@@ -13,4 +13,4 @@
     // Get new connection
     $user = new User($db->getConnection());
 
-    echo json_encode($_SERVER);
+    echo json_encode(file_get_contents("php://input"));
