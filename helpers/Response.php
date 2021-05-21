@@ -1,6 +1,12 @@
 <?php
     class Response {
-        function __construct($data, $status, $error, $message) {
+        function __construct()
+        {
+            # code ...
+        }
+
+        public static function response($data = [], $status = 200, $error = false, $message = 'success')
+        {
             return [
                 'data' => $data,
                 'status' => $status,

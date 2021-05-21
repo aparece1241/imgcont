@@ -3,7 +3,7 @@
     $BASE_PATH = dirname(__DIR__);         
     
     // Testing only
-    include("$BASE_PATH/api/user/add.php");
+    // include("$BASE_PATH/api/user/add.php");
 
     // Simple router with switch case
     switch ($request) {
@@ -15,11 +15,19 @@
             echo "Login Page";
             break;
         case '/register':
-            echo "Register Page";
+            echo "Register Page test";
             break;
         // User home page
         case '/home':
             include("$BASE_PATH/views/user/index.php");
+            break;
+        // API part
+        case '/users': 
+            include("$BASE_PATH/api/user/read.php");
+            break;
+        case '/user/add':
+            $_SERVER['REQUEST_METHOD'] = 'POST';
+            include("$BASE_PATH/api/user/add.php");
             break;
         // Errors part
         case '/error/404':
