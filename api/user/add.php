@@ -9,8 +9,25 @@
     // Import the class
     $BASE_PATH = dirname(dirname(__DIR__)); 
     include("$BASE_PATH/model/User.php");
+    include("$BASE_PATH/helpers/Response.php");
 
-    // Get new connection
-    $user = new User($db->getConnection());
+    // Initialized response wrapper
+    $response = Response::response();
 
-    echo json_encode(file_get_contents("php://input"));
+    // Get connection
+    $conn = $db->getConnection();
+
+    // Get the inputed data
+    $data = (Array) json_decode(file_get_contents("php://input"));
+
+    $result = User::create($conn, $data);
+
+    if (!$result['error']) {
+        $response['data'] = $result['last_inserted'];
+    } else {
+        $response['message'] = $result['message'];
+        $response['status'] = 400;
+        $response['is_error'] = $result['error'];
+    }
+
+    echo json_encode($response);

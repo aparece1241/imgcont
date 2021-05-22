@@ -1,7 +1,7 @@
 <?php
     $request = $_SERVER['REQUEST_URI'];
     $BASE_PATH = dirname(__DIR__);         
-    
+
     // Testing only
     // include("$BASE_PATH/api/user/add.php");
 
@@ -21,14 +21,21 @@
         case '/home':
             include("$BASE_PATH/views/user/index.php");
             break;
+
         // API part
         case '/users': 
             include("$BASE_PATH/api/user/read.php");
             break;
+
         case '/user/add':
             $_SERVER['REQUEST_METHOD'] = 'POST';
             include("$BASE_PATH/api/user/add.php");
             break;
+        case '/user/rem':
+            $_SERVER['REQUEST_METHOD'] = 'DELETE';
+            include("$BASE_PATH/api/user/delete.php");
+            break;
+
         // Errors part
         case '/error/404':
             include("$BASE_PATH/views/errors/404.php");
