@@ -11,5 +11,4 @@
     }
 
     // Import the router file
-    include_once('./router/router.php');
-    
+    include('./router/router.php');

@@ -1,6 +1,6 @@
 <?php
     $request = $_SERVER['REQUEST_URI'];
-    $BASE_PATH = dirname(__DIR__);         
+    $BASE_PATH = dirname(__DIR__);
 
     // Testing only
     // include("$BASE_PATH/api/user/add.php");
@@ -8,7 +8,7 @@
     // Simple router with switch case
     switch ($request) {
         // welcome page
-        case '/':
+        case '/imgcont/':
             include("$BASE_PATH/views/welcome.php");
             break;
         case '/login':
@@ -23,11 +23,11 @@
             break;
 
         // API part
-        case '/users': 
+        case '/imgcont/users': 
             include("$BASE_PATH/api/user/read.php");
             break;
 
-        case '/user/add':
+        case '/imgcont/user/add':
             $_SERVER['REQUEST_METHOD'] = 'POST';
             include("$BASE_PATH/api/user/add.php");
             break;
@@ -35,7 +35,10 @@
             $_SERVER['REQUEST_METHOD'] = 'DELETE';
             include("$BASE_PATH/api/user/delete.php");
             break;
-
+        // admin
+        case '/imgcont/admin':
+            include("$BASE_PATH/views/admin/index.php");
+            break;
         // Errors part
         case '/error/404':
             include("$BASE_PATH/views/errors/404.php");
